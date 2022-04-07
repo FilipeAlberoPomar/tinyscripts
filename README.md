@@ -1,6 +1,6 @@
-# Tinyscripts
+# You found this! 🤯
 
-Hi there! I'm Filipe Albero Pomar and somehow you managed to find my GitHub repo. 
+Somehow you managed to find my GitHub repo. 
 
 In here you'll find tiny scripts I create to automate some repetitive tasks.
 
