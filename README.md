@@ -7,7 +7,7 @@ The code snippets here are messy, half-formed and unpolished.
 
 
 ### Backup Encrypter 🔐
-Give it a directory and it will generate an encrypted tarball for your. It has a snazzy UI reminiscent of the 1980s. And uses shasum, tar, and openssl that ship with MacOS
+Give it a directory and it will generate an encrypted tarball. It has a snazzy UI reminiscent of the 1980s. And uses shasum, tar, and openssl that ship with MacOS
 
 ### HDD Synchronizer 🔄
 Nothing but a glofied terminal menu that executes rsyncs across external HDDS
