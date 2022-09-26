@@ -188,7 +188,7 @@
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>354.000000:301.000000</string>
+				<string>244.750000:245.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Find Finder Items 2.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -308,7 +308,7 @@
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>354.000000:457.000000</string>
+				<string>244.750000:345.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Move Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -787,7 +787,7 @@
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>354.000000:700.000000</string>
+				<string>244.750000:532.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Rename Finder Items.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -797,19 +797,19 @@
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>647ABCBE-2F53-4020-AE2D-92CA02590C76</key>
-		<dict>
-			<key>from</key>
-			<string>F359C812-22A2-4F78-8E8A-C2262FD7B06B - F359C812-22A2-4F78-8E8A-C2262FD7B06B</string>
-			<key>to</key>
-			<string>A3869760-4392-441D-A8A1-9FA7372D07DF - A3869760-4392-441D-A8A1-9FA7372D07DF</string>
-		</dict>
-		<key>951C1F91-D02C-49A2-B815-DEA4CCD52E08</key>
+		<key>BC4EB031-6790-4849-A862-1B53494B26CF</key>
 		<dict>
 			<key>from</key>
 			<string>E5D9F6D9-6B34-4068-A756-75832E548F4D - E5D9F6D9-6B34-4068-A756-75832E548F4D</string>
 			<key>to</key>
 			<string>F359C812-22A2-4F78-8E8A-C2262FD7B06B - F359C812-22A2-4F78-8E8A-C2262FD7B06B</string>
+		</dict>
+		<key>D739A5AE-3EEC-4D74-A131-B32C85504DE1</key>
+		<dict>
+			<key>from</key>
+			<string>F359C812-22A2-4F78-8E8A-C2262FD7B06B - F359C812-22A2-4F78-8E8A-C2262FD7B06B</string>
+			<key>to</key>
+			<string>A3869760-4392-441D-A8A1-9FA7372D07DF - A3869760-4392-441D-A8A1-9FA7372D07DF</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>
