@@ -33,7 +33,7 @@ MASTER_COPYOFMASTER = """rsync
 /Volumes/MASTER/
 /Volumes/COPYOFMASTER/""".replace('\n',' ')
 
-MASTER_ENTERTAINMENT = """rsync
+MASTER_MEDIA = """rsync
 --dry-run
 --archive
 --verbose
@@ -43,7 +43,7 @@ MASTER_ENTERTAINMENT = """rsync
 --exclude=".*"
 --exclude ".*/"
 /Volumes/MASTER/Media/
-/Volumes/ENTERTAINMENT/Media/""".replace('\n',' ')
+/Volumes/MEDIA/Media/""".replace('\n',' ')
 
 MAIN_MENU = """
 ---------------------------
@@ -51,7 +51,7 @@ MAIN_MENU = """
 ---------------------------
 1. Mac > Master
 2. Master > CopyOfMaster
-3. Master > Entertainment
+3. Master > Media
 0. Exit\n"""
 
 SUB_MENU = """
@@ -109,26 +109,26 @@ def master_copyofmaster():
     master_copyofmaster()
 
 
-def MASTER_ENTERTAINMENT():
+def master_media():
     os.system("clear")
-    print(SUB_MENU % "     MASTER > ENTERTAINMENT ")
+    print(SUB_MENU % "     MASTER > MEDIA ")
     choice = str(input(">>  "))
 
     if choice == "1":
-        os.system(MASTER_ENTERTAINMENT)
+        os.system(MASTER_MEDIA)
     elif choice == "2":
-        os.system(MASTER_ENTERTAINMENT.replace("--dry-run", ""))
+        os.system(MASTER_MEDIA.replace("--dry-run", ""))
     elif choice == "0":
         main_menu()
 
     input("\npress any enter")
-    MASTER_ENTERTAINMENT()
+    master_media()
 
 
 MAIN_ACTIONS = {
     '1': mac_master,
     '2': master_copyofmaster,
-    '3': MASTER_ENTERTAINMENT,
+    '3': master_media,
     '0': exit
 }
 
