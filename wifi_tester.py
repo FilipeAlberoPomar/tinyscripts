@@ -8,7 +8,7 @@ import requests, time, datetime
 # $nohup python /home/pi/wifi_tester/wifi_tester.py &
 
 # ConnectTimeoutError means no connection to host, sem conexao Virgin
-# NewConnectionError means wifi issues
+# NewConnectionError means wifi issues.
 
 
 def disconnects_logger():
