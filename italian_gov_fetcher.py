@@ -1,5 +1,6 @@
 # WORK IN PROGRESS
-# Fetcher of italian city data.
+# Brace! Brace! Ugly, unifished code below
+# This script downloads and parses financial information from italian cities
 
 import requests, os
 from random import randint
@@ -17,44 +18,42 @@ START_YEAR = 1996
 END_YEAR = 2009
 BASE_FOLDER = 'scrapper'
 
-def download():
+def fetch():
     for name, code in cities.items():
         print("%s's code is %s" % (name, code))
        
         if not os.path.exists(BASE_FOLDER):
             os.mkdir(BASE_FOLDER)
 
-        if not os.path.exists(BASE_FOLDER+'//'+name):
-            os.mkdir(BASE_FOLDER+'//'+name)
-
         for year in range(START_YEAR, END_YEAR+1):
             url = BASE_URL.format(city_code=code, year=year)
             print(url)
             response = requests.get(url, headers=HEADERS)
 
-            file_name = BASE_FOLDER+'//'+name+'//'+str(year)+'.html' 
+            file_name = BASE_FOLDER+'//'+name+'-'+str(year)+'.html' 
             f = open(file_name, 'w')
             print(response)
             f.write(response.text)
 
             sleep(randint(1,3))
 
-def parse():
-
+def extract():
     for root, dirs, files in os.walk(BASE_FOLDER):
         print('a')
         print(root)
         for file in files:
+            canonical_file = BASE_FOLDER+'//'+file
             print('b')
             print(file)
+            f = open(canonical_file)
+            text = f.read()
+            print(text)
             #append the file name to the list
-                
-
     print('parse')
     
     
 if __name__ == '__main__':
-    parse()
+    extract()
 
 
 
