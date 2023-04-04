@@ -5,6 +5,7 @@
 import requests, os
 from random import randint
 from time import sleep
+from bs4 import BeautifulSoup
 
 #url = 'https://finanzalocale.interno.gov.it/apps/floc.php/certificati/index/codice_ente/1010020030/cod/4/anno/2008/md/0/cod_modello/CCOU/tipo_modello/U/cod_quadro/03'
 BASE_URL = 'https://finanzalocale.interno.gov.it/apps/floc.php/certificati/index/codice_ente/{city_code}/cod/4/anno/{year}/md/0/cod_modello/CCOU/tipo_modello/U/cod_quadro/03'
@@ -16,47 +17,51 @@ cities = {
 
 START_YEAR = 1996
 END_YEAR = 2009
-BASE_FOLDER = 'scrapper'
+
+OUTPUT_FOLDER = 'scrapper'
 
 def fetch():
-    for name, code in cities.items():
-        print("%s's code is %s" % (name, code))
-       
-        if not os.path.exists(BASE_FOLDER):
-            os.mkdir(BASE_FOLDER)
+
+    if not os.path.exists(OUTPUT_FOLDER):
+        os.mkdir(OUTPUT_FOLDER)
+
+    for city_name, city_code in cities.items():
 
         for year in range(START_YEAR, END_YEAR+1):
-            url = BASE_URL.format(city_code=code, year=year)
-            print(url)
-            response = requests.get(url, headers=HEADERS)
 
-            file_name = BASE_FOLDER+'//'+name+'-'+str(year)+'.html' 
-            f = open(file_name, 'w')
-            print(response)
-            f.write(response.text)
+            file_name = "{}/{}-{}.html".format(OUTPUT_FOLDER, city_name,year) 
 
-            sleep(randint(1,3))
+            if not os.path.exists(file_name):
+                url = BASE_URL.format(city_code=city_code, year=year)
+                response = requests.get(url, headers=HEADERS)
+                file = open(file_name, 'w')
+                file.write(response.text)
+                sleep(randint(1,3))
 
 def extract():
-    for root, dirs, files in os.walk(BASE_FOLDER):
-        print('a')
-        print(root)
-        for file in files:
-            canonical_file = BASE_FOLDER+'//'+file
-            print('b')
-            print(file)
+
+    files = os.listdir(OUTPUT_FOLDER)
+
+    for file_name in sorted(files):
+
+        if '.html' in file_name:
+            canonical_file = "{}/{}".format(OUTPUT_FOLDER, file_name)
+
+            print('Processing: '+canonical_file)
             f = open(canonical_file)
             text = f.read()
-            print(text)
-            #append the file name to the list
-    print('parse')
-    
+            
+            if 'Dati assenti' in text:
+                print("no data")
+
+            else: 
+                soup = BeautifulSoup(text, 'html.parser')
+                table = soup.find(class_='table table-striped table-bordered table-condensed')
+                money = table.tr.next.next.next.next.next.next.next.next.next.next.next.next.contents[0]
+                print(money)
+            
+            print("\n")
+
     
 if __name__ == '__main__':
     extract()
-
-
-
-#
-#
-#print(r.text)
